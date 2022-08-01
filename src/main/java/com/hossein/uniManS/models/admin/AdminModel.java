@@ -5,12 +5,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.hossein.uniManS.models.MainUser;
+import com.hossein.uniManS.models.roles.RoleModel;
+
 @Entity
 @Table(name = "ADMIN")
-public class AdminModel {
+public class AdminModel extends MainUser {
 	
 	@Id
 	@SequenceGenerator(
@@ -24,8 +29,15 @@ public class AdminModel {
 			)
 	private Integer id;
 	
-	@Column(name = "ADMIN_NAME")
-	private String adminName;
+	@Column(name = "USERNAME")
+	private String username;
+	
+	@Column(name = "PASSWORD")
+	private String password;
+	
+	@OneToOne
+	@JoinColumn(name = "ROLE_ID")
+	private RoleModel role;
 
 	public Integer getId() {
 		return id;
@@ -35,12 +47,20 @@ public class AdminModel {
 		this.id = id;
 	}
 
-	public String getAdminName() {
-		return adminName;
+	public String getUsername() {
+		return username;
 	}
 
-	public void setAdminName(String adminName) {
-		this.adminName = adminName;
+	public void setUsername(String username) {
+		this.username = username;
 	}
-	
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
 }
