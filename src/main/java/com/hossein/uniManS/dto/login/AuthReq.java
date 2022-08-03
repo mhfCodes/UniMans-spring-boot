@@ -1,12 +1,14 @@
-package com.hossein.uniManS.models;
+package com.hossein.uniManS.dto.login;
 
-import com.hossein.uniManS.models.roles.RoleModel;
-
-public class MainUser {
+public class AuthReq {
 	
 	private String username;
 	private String password;
-	private RoleModel role;
+	
+	public AuthReq() {
+		super();
+	}
+	
 	public String getUsername() {
 		return username;
 	}
@@ -18,12 +20,6 @@ public class MainUser {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public RoleModel getRole() {
-		return role;
-	}
-	public void setRole(RoleModel role) {
-		this.role = role;
 	}
 
 }

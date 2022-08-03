@@ -39,6 +39,17 @@ public class AdminModel extends MainUser {
 	@JoinColumn(name = "ROLE_ID")
 	private RoleModel role;
 
+	public AdminModel() {
+		super();
+	}
+
+	public AdminModel(String username, String password, RoleModel role) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.role = role;
+	}
+
 	public Integer getId() {
 		return id;
 	}

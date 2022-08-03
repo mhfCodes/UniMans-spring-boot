@@ -65,6 +65,13 @@ public class Student extends MainUser {
 		super();
 	}
 
+	public Student(String username, String password, RoleModel role) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.role = role;
+	}
+
 	public Long getId() {
 		return id;
 	}

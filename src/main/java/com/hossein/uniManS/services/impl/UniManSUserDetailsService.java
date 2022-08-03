@@ -1,8 +1,12 @@
 package com.hossein.uniManS.services.impl;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -48,7 +52,10 @@ public class UniManSUserDetailsService implements UserDetailsService {
 			throw new ApplicationException("User Not Found");
 		}
 		
-		return null;
+		Set<SimpleGrantedAuthority> authorities = new HashSet<>();
+		authorities.add(new SimpleGrantedAuthority(mainUser.getRole().getRoleName()));
+		User user = new User(mainUser.getUsername(), mainUser.getPassword(), authorities);
+		return user;
 	}
 
 }
