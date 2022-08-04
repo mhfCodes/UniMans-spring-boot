@@ -14,20 +14,20 @@ import com.hossein.uniManS.models.MainUser;
 import com.hossein.uniManS.models.roles.RoleModel;
 
 @Entity
-@Table(name = "ADMIN")
+@Table(name = "ADMIN_TABLE")
 public class AdminModel extends MainUser {
 	
 	@Id
 	@SequenceGenerator(
-				name = "seq_admin",
-				sequenceName = "seq_admin",
+				name = "seq_my_admin",
+				sequenceName = "seq_my_admin",
 				allocationSize = 1
 			)
 	@GeneratedValue(
 				strategy = GenerationType.SEQUENCE,
-				generator = "seq_admin"
+				generator = "seq_my_admin"
 			)
-	private Integer id;
+	private Long id;
 	
 	@Column(name = "USERNAME")
 	private String username;
@@ -35,7 +35,7 @@ public class AdminModel extends MainUser {
 	@Column(name = "PASSWORD")
 	private String password;
 	
-	@OneToOne
+	@OneToOne()
 	@JoinColumn(name = "ROLE_ID")
 	private RoleModel role;
 
@@ -50,11 +50,11 @@ public class AdminModel extends MainUser {
 		this.role = role;
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -72,6 +72,14 @@ public class AdminModel extends MainUser {
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public RoleModel getRole() {
+		return role;
+	}
+
+	public void setRole(RoleModel role) {
+		this.role = role;
 	}
 
 }

@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.hossein.uniManS.models.roles.RoleModel;
 
 @Repository
-public interface RolesRepository extends JpaRepository<RoleModel, Long> {
+public interface IRolesRepository extends JpaRepository<RoleModel, Long> {
 
 }

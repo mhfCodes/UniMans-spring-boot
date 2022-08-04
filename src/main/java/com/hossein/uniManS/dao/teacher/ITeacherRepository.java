@@ -8,7 +8,9 @@ import org.springframework.stereotype.Repository;
 import com.hossein.uniManS.models.teacher.Teacher;
 
 @Repository
-public interface TeacherRepository extends JpaRepository<Teacher, Long> {
+public interface ITeacherRepository extends JpaRepository<Teacher, Long> {
 
 	Optional<Teacher> findByUsername(String username);
+	
+	Optional<Teacher> findById(Long id);
 }

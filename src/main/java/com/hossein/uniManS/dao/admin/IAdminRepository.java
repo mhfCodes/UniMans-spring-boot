@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.hossein.uniManS.models.admin.AdminModel;
 
 @Repository
-public interface AdminRepository extends JpaRepository<AdminModel, Integer> {
+public interface IAdminRepository extends JpaRepository<AdminModel, Long> {
 
 	Optional<AdminModel> findByUsername(String username);
 	

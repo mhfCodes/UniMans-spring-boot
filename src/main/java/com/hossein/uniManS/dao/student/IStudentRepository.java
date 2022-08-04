@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.hossein.uniManS.models.student.Student;
 
 @Repository
-public interface StudentRepository extends JpaRepository<Student, Long> {
+public interface IStudentRepository extends JpaRepository<Student, Long> {
 
 	Optional<Student> findByUsername(String username);
 }
