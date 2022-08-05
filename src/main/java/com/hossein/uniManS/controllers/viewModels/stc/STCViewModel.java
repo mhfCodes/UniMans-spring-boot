@@ -9,6 +9,9 @@ public class STCViewModel {
 	private String courseName;
 	private Integer courseCode;
 	private Integer courseCapacity;
+	private String studentFirstName;
+	private String studentLastName;
+	private Long teacherId;
 	
 	public Long getId() {
 		return id;
@@ -51,6 +54,24 @@ public class STCViewModel {
 	}
 	public void setCourseCapacity(Integer courseCapacity) {
 		this.courseCapacity = courseCapacity;
+	}
+	public String getStudentFirstName() {
+		return studentFirstName;
+	}
+	public void setStudentFirstName(String studentFirstName) {
+		this.studentFirstName = studentFirstName;
+	}
+	public String getStudentLastName() {
+		return studentLastName;
+	}
+	public void setStudentLastName(String studentLastName) {
+		this.studentLastName = studentLastName;
+	}
+	public Long getTeacherId() {
+		return teacherId;
+	}
+	public void setTeacherId(Long teacherId) {
+		this.teacherId = teacherId;
 	}
 
 }

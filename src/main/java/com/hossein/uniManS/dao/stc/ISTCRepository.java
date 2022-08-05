@@ -14,4 +14,6 @@ public interface ISTCRepository extends JpaRepository<STC, Long> {
 	Optional<STC> findById(Long id);
 	
 	Optional<Set<STC>> findByStudentId(Long studentId);
+	
+	Optional<Set<STC>> findByTeacherId(Long teacherId);
 }

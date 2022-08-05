@@ -21,6 +21,9 @@ public interface STCMapper {
 	Set<STC> convertFromDtoToEntityList(Set<STCDto> dtoList);
 
 	@Mapping(source = "student.id", target = "studentId")
+	@Mapping(source = "student.firstName", target = "studentFirstName")
+	@Mapping(source = "student.lastName", target = "studentLastName")
+	@Mapping(source = "teacher.id", target = "teacherId")
 	@Mapping(source = "teacher.firstName", target = "teacherFirstName")
 	@Mapping(source = "teacher.lastName", target = "teacherLastName")
 	@Mapping(source = "course.courseName", target = "courseName")
