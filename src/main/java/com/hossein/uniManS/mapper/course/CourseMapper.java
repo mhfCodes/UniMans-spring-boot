@@ -1,6 +1,7 @@
 package com.hossein.uniManS.mapper.course;
 
 import java.util.List;
+import java.util.Set;
 
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
@@ -20,6 +21,8 @@ public interface CourseMapper {
 	@Mapping(source = "cCode", target = "courseCode")
 	@Mapping(source = "cCapacity", target = "courseCapacity")
 	Course convertFromDtoToEntity(CourseDto dto);
+	
+	Set<Course> convertFromDtoToEntityList(Set<CourseDto> dtoList);
 	
 	CourseViewModel convertFromEntityToViewModel(Course entity);
 	

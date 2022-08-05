@@ -71,6 +71,17 @@ public class Teacher extends MainUser {
 		this.password = password;
 		this.role = role;
 	}
+	
+	public Teacher(String username, String password, RoleModel role, String firstName, String lastName,
+			Long teachingCode) {
+		super();
+		this.username = username;
+		this.password = password;
+		this.role = role;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.teachingCode = teachingCode;
+	}
 
 	public Long getId() {
 		return id;

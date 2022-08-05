@@ -24,32 +24,34 @@ public class UniManSApplication {
 		SpringApplication.run(UniManSApplication.class, args);
 	}
 	
-	@Bean
-	CommandLineRunner runner(IAdminRepository adminRepo, IRolesRepository roleRepo
-							, IStudentRepository studentRepo, ITeacherRepository teacherRepo) {
-		
-		return args -> {
-			
-			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-			
-			RoleModel adminRole = new RoleModel("ROLE_ADMIN");
-			RoleModel studentRole = new RoleModel("ROLE_STUDENT");
-			RoleModel teacherRole = new RoleModel("ROLE_TEACHER");
-			
-			roleRepo.saveAll(List.of(adminRole, studentRole, teacherRole));
-			
-			AdminModel admin = new AdminModel("admin", passwordEncoder.encode("abcd"), adminRole);
-			Teacher teacher1 = new Teacher("teacher1", passwordEncoder.encode("abcd"), teacherRole);
-			Teacher teacher2 = new Teacher("teacher2", passwordEncoder.encode("abcd"), teacherRole);
-			Teacher teacher3 = new Teacher("teacher3", passwordEncoder.encode("abcd"), teacherRole);
-
-			Student student = new Student("student", passwordEncoder.encode("abcd"), studentRole);
-			
-			adminRepo.save(admin);
-			teacherRepo.saveAll(List.of(teacher1, teacher2, teacher3));
-			studentRepo.save(student);
-			
-		};
-	}
+//	@Bean
+//	CommandLineRunner runner(IAdminRepository adminRepo, IRolesRepository roleRepo
+//							, IStudentRepository studentRepo, ITeacherRepository teacherRepo) {
+//		
+//		return args -> {
+//			
+//			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//			
+//			RoleModel adminRole = new RoleModel("ROLE_ADMIN");
+//			RoleModel studentRole = new RoleModel("ROLE_STUDENT");
+//			RoleModel teacherRole = new RoleModel("ROLE_TEACHER");
+//			
+//			roleRepo.saveAll(List.of(adminRole, studentRole, teacherRole));
+//			
+//			AdminModel admin = new AdminModel("admin", passwordEncoder.encode("abcd"), adminRole);
+//			Teacher teacher1 = new Teacher("teacher1", passwordEncoder.encode("abcd"), teacherRole, "John", "Doe", 123456L);
+//			Teacher teacher2 = new Teacher("teacher2", passwordEncoder.encode("abcd"), teacherRole, "Jane", "Doe", 234567L);
+//			Teacher teacher3 = new Teacher("teacher3", passwordEncoder.encode("abcd"), teacherRole, "Alex", "Smith", 345678L);
+//
+//			Student student1 = new Student("student1", passwordEncoder.encode("abcd"), studentRole, "David", "Williams", 741L);
+//			Student student2 = new Student("student2", passwordEncoder.encode("abcd"), studentRole, "Liam", "Nesson", 852L);
+//			Student student3 = new Student("student3", passwordEncoder.encode("abcd"), studentRole, "Morgan", "Freeman", 963L);
+//			
+//			adminRepo.save(admin);
+//			teacherRepo.saveAll(List.of(teacher1, teacher2, teacher3));
+//			studentRepo.saveAll(List.of(student1, student2, student3));
+//			
+//		};
+//	}
 
 }
